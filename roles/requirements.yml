@@ -1,4 +1,3 @@
 ---
-- src: https://github.com/Emergent360/launch_windows_ami.git
 - src: https://github.com/Emergent360/launch_ami.git
 - src: https://github.com/Emergent360/terminate_ami.git
