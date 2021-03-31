@@ -1,0 +1,8 @@
+---
+
+- name: "Install Chocolatey Framework"
+  hosts: all
+  gather_facts: yes
+
+  roles:
+  - install_choco

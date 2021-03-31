@@ -1,0 +1,8 @@
+---
+
+- name: "Manage Chocolatey Packages"
+  hosts: all
+  gather_facts: yes
+
+  roles:
+  - manage_choco_pkgs
