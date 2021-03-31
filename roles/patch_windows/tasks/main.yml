@@ -1,10 +1,4 @@
 ---
-#- name: Check for Windows Updates
-#  win_updates:
-#    category_names: "{{ categories | default(omit) }}"
-#    state: searched
-#  register: update_search_results
-
 - name: Install Windows Updates
   win_updates:
     category_names: "{{ categories | default(omit) }}"
