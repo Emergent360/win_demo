@@ -1,0 +1,6 @@
+---
+- name: Manage Chocolatey Packages
+  win_chocolatey:
+    state: "{{ app_state }}"
+    name: "{{ item }}"
+  loop: "{{ app_list }}"
