@@ -7,6 +7,21 @@
     platform: windows
     ec2_region: us-east-1
     instance_count: 1
-    
-  roles:
-  - launch_cluster
+
+  tasks:
+  - name: "Create user data"
+    set_fact:
+      user_data: "{{ lookup('template', 'userdata.txt.j2') }}"
+
+  - name: "Launch Tier"
+    include_role:
+      name: launch_cluster
+
+  - name: "Wait for connection on all hosts."
+    wait_for:
+      host: "{{ item['tagged_instances'][0]['private_ip'] }}"
+      port: 5986
+      timeout: 300
+    loop: "{{ ec2.results }}"
+    loop_control:
+      label: "{{ item['tagged_instances'][0]['private_ip'] }}"  
