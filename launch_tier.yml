@@ -4,7 +4,7 @@
   hosts: localhost
   gather_facts: no
   vars:
-    platform: windows
+    platform: Windows
     ec2_region: us-east-1
     instance_count: 1
 
