@@ -1,0 +1,10 @@
+---
+
+- name: "Launch cluster tier"
+  hosts: localhost
+  gather_facts: no
+  vars:
+    platform: windows
+    
+  roles:
+  - launch_cluster
