@@ -5,6 +5,7 @@
   gather_facts: no
   vars:
     platform: windows
+    ec2_region: us-east-1
     
   roles:
   - launch_cluster
