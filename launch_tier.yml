@@ -6,6 +6,7 @@
   vars:
     platform: windows
     ec2_region: us-east-1
+    instance_count: 1
     
   roles:
   - launch_cluster
