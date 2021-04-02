@@ -4,4 +4,4 @@
   gather_facts: yes
 
   roles:
-  - install_software
+  - manage_msi_software
