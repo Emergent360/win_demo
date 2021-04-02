@@ -8,3 +8,10 @@
   win_package: 
     path: C:\windows\temp\httpd-2.2.25-win32-x86-no_ssl.msi
     state: present
+  when: software_state == install
+
+- name: Remove MSI
+  win_package: 
+    path: C:\windows\temp\httpd-2.2.25-win32-x86-no_ssl.msi
+    state: absent
+  when: software_state == remove
