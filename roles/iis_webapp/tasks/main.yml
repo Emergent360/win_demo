@@ -13,3 +13,7 @@
   win_copy:
     content: "{{ iis_test_message }}"
     dest: C:\Inetpub\wwwroot\index.html
+
+- name: Print DNS name
+  debug:
+    var: ec2_dns_name
