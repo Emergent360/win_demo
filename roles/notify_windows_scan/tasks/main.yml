@@ -5,5 +5,5 @@
 
 - name: print scan results
   debug:
-    msg: "Updates needed:{{ updates }}"
+    msg: "Updates needed:{{ found_updates }}"
   when: found_update_count | int >= 1
