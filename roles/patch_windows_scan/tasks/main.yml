@@ -14,5 +14,6 @@
 
 - name: save scan results
   set_fact:
+    cacheable: yes
     found_update_count: "{{ update_search_result.found_update_count }}"
     found_updates: "{{ update_search_result.updates }}"
