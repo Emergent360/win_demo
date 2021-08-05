@@ -1,0 +1,8 @@
+---
+
+- name: "Update Windows Scan"
+  hosts: all
+  gather_facts: yes
+
+  roles:
+  - patch_windows_scan

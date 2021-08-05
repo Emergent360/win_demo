@@ -1,0 +1,13 @@
+---
+- name: Windows Updates Scan
+  win_updates:
+    category_names: "{{ categories | default(omit) }}"
+    whitelist: "{{ kb_list | default(omit) }}"
+    state: searched
+    log_path: c:\ansible_win_updates.txt
+    reboot: no
+  register: update_search_result
+
+- name: print result
+  debug:
+    msg: "found_update_count: {{ update_serach_result.found_update_count }}"
