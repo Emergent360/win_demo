@@ -1,0 +1,8 @@
+---
+
+- name: "Notify Windows Scan"
+  hosts: all
+  gather_facts: yes
+
+  roles:
+  - notify_windows_scan

@@ -1,0 +1,10 @@
+---
+- name: Notify Updates Scan
+- name: print count
+  debug:
+    msg: "found_update_count: {{ found_update_count }}"
+
+- name: print scan results
+  debug:
+    msg: "Updates needed:{{ updates }}"
+  when: "{{ found_update_count }}" > 0
