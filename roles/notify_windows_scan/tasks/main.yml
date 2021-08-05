@@ -1,13 +1,9 @@
 ---
-- name: print all facts
+- name: print count
   debug:
-    var: ansible_facts
+    msg: "found_update_count: {{ found_update_count }}"
 
-#- name: print count
-#  debug:
-#    msg: "found_update_count: {{ found_update_count }}"
-#
-#- name: print scan results
-#  debug:
-#    msg: "Updates needed:{{ updates }}"
-#  when: found_update_count > 0
+- name: print scan results
+  debug:
+    msg: "Updates needed:{{ updates }}"
+  when: found_update_count > 0
