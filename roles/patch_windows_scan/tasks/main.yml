@@ -10,4 +10,4 @@
 
 - name: print result
   debug:
-    msg: "found_update_count: {{ update_serach_result.found_update_count }}"
+    msg: "found_update_count: {{ update_search_result.found_update_count }}"
