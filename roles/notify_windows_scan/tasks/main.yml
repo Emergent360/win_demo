@@ -1,5 +1,4 @@
 ---
-- name: Notify Updates Scan
 - name: print count
   debug:
     msg: "found_update_count: {{ found_update_count }}"
