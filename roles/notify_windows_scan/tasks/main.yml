@@ -17,7 +17,9 @@
     password: "{{ iam_account_password }}"
     subject: Window Update Scan Notification
     body: |
-       '{{ inventory_hostname }}
+       'Hostname: {{ inventory_hostname }}
+
+       Updates needed:
        {{ found_updates | to_yaml }}'
     to: dpullman@emergent360.com
   delegate_to: localhost
