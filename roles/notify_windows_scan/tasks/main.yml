@@ -15,4 +15,4 @@
     subject: Window Update Scan Notification
     body: "{{ found_updates }}"
     to: dpullman@emergent360.com
-    delegate_to: localhost
+  delegate_to: localhost
