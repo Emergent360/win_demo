@@ -15,7 +15,7 @@
     username: "{{ iam_account_username }}"
     from: "dpullman@emergent360.com"
     password: "{{ iam_account_password }}"
-    subject: Window Update Scan Notification
+    subject: Window Update Scan Notification: "{{ inventory_hostname }}""
     body: |
        'Hostname: {{ inventory_hostname }}
 
