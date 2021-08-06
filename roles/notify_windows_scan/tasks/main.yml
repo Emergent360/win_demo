@@ -7,3 +7,12 @@
   debug:
     msg: "Updates needed:{{ found_updates }}"
   when: found_update_count | int >= 1
+
+- name: email scan results
+  mail:
+    host: email-smtp.us-east-1.amazonaws.com
+    port: 
+    subject: Window Update Scan Notification
+    body: {{ found_updates }}
+    to:
+    delegate_to: localhost
