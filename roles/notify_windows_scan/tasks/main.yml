@@ -12,6 +12,8 @@
   mail:
     host: email-smtp.us-east-1.amazonaws.com
     port: 587
+    username: "{{ iam_account_username }}"
+    password: "{{ iam_account_password }}"
     subject: Window Update Scan Notification
     body: "{{ found_updates }}"
     to: dpullman@emergent360.com
