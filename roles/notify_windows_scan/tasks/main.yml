@@ -16,6 +16,8 @@
     from: "dpullman@emergent360.com"
     password: "{{ iam_account_password }}"
     subject: Window Update Scan Notification
-    body: "{{ found_updates }}"
+    body: 
+      - "{{ found_updates.title }}"
+      - "{{ found_updates.kb }}"
     to: dpullman@emergent360.com
   delegate_to: localhost
