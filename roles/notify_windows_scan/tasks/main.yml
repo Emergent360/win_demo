@@ -11,8 +11,8 @@
 - name: email scan results
   mail:
     host: email-smtp.us-east-1.amazonaws.com
-    port: 
+    port: 587
     subject: Window Update Scan Notification
     body: {{ found_updates }}
-    to:
+    to: dpullman@emergent360.com
     delegate_to: localhost
