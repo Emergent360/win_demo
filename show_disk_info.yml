@@ -21,7 +21,3 @@
     vars:
       disk: '{{ ansible_facts.disks|selectattr("system_disk")|first }}'
       size_remaining: '{{ disk.partitions[0].volumes[0].size_remaining|filesizeformat(true) }}'
- 
-  - name: "show application event log"
-    win_eventlog:
-      name: Application
