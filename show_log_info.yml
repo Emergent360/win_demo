@@ -1,0 +1,10 @@
+---
+
+- name: "Show log info"
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: "Get log facts"
+    win_eventlog:
+    name: "{{ log_name }}"
