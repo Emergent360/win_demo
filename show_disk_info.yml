@@ -8,11 +8,10 @@
   - name: "Get disk facts"
     win_disk_facts:
 
-#  - name: "Wait for connection on all hosts."
-#    wait_for:
-#      host: "{{ item['tagged_instances'][0]['private_ip'] }}"
-#      port: 5986
-#      timeout: 300
-#    loop: "{{ ec2.results }}"
-#    loop_control:
-#      label: "{{ item['tagged_instances'][0]['private_ip'] }}"  
+  - name: "Show disk size"
+    debug:
+      msg: "system disk size: {{ disksize_gib_human }}"
+    vars:
+      disk: '{{ ansible_facts.disks|selectattr("system_disk")|first }}'
+      disksize_gib_human: '{{ disk.size|filesizeformat(true) }}'
+ 
