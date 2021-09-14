@@ -11,4 +11,4 @@
       maximum_size: "{{ max_size | default(omit) }}"
       overflow_action: "{{ ovf_action | default(omit) }}"
       retention_days: "{{ rtn_days | default(omit) }}"
-      state: present
+      state: "{{ state ..}}"
