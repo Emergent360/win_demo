@@ -7,4 +7,4 @@
   tasks:
   - name: "Get log facts"
     win_eventlog:
-    name: "{{ log_name }}"
+      name: "{{ log_name }}"
