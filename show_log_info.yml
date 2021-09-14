@@ -8,3 +8,15 @@
   - name: "Get log facts"
     win_eventlog:
       name: "{{ log_name }}"
+    register: log_facts
+
+  - name: Print log info
+    vars:
+      msg: |
+        Overflow Action: {{ log_facts.overflow_action }}
+        Log Entries: {{ log_facts.entries }}
+        Retention Days: {{ log_facts.retention_days }}
+        Log Name: {{ log_facts.name }}
+        Max Size (KB): {{ log_facts.maximum_size_kb }}
+    debug: 
+      msg: "{{ msg.split('\n') }}"   
