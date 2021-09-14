@@ -1,0 +1,14 @@
+---
+
+- name: "Manage event log"
+  hosts: all
+  gather_facts: no
+
+  tasks:
+  - name: Set event log values
+    win_eventlog:
+      name: "{{ log_name }}"
+      maximum_size: "{{ max_size }}"
+      overflow_action: "{{ ovf_action }}"
+      retention_days: "{{ rtn_days }}"
+      state: "{{ state }}"
