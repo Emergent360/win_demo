@@ -13,8 +13,8 @@
   - name: Print log info
     debug:
       msg:
-        - Log Name: {{ log_facts.name }}
-        - Overflow Action: {{ log_facts.overflow_action }}
-        - Log Entries: {{ log_facts.entries }}
-        - Retention Days: {{ log_facts.retention_days }}
-        - Max Size (KB): {{ log_facts.maximum_size_kb }}
+        - "Log Name: {{ log_facts.name }}"
+        - "Overflow Action: {{ log_facts.overflow_action }}"
+        - "Log Entries: {{ log_facts.entries }}"
+        - "Retention Days: {{ log_facts.retention_days }}"
+        - "Max Size (KB): {{ log_facts.maximum_size_kb }}"
