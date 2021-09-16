@@ -5,7 +5,7 @@
   tasks:
   - name: Run script
     win_shell: >
-      Get-ChildItem C:\Window\Temp | 
+      Get-ChildItem C:\Windows\Temp | 
       Measure-Object -Property Size -Sum | 
       Select-Object -expand Sum
     register: result
@@ -16,6 +16,6 @@
 
   - name: Clear windows temp
     win_shell: >
-      Get-ChildItem C:\Window\Temp -Recurse | 
+      Get-ChildItem C:\Windows\Temp -Recurse | 
       Remove-Item -Force
     when: recycle_size | int >= size_threshold
