@@ -17,5 +17,5 @@
      recycle_size: "{{ result.stdout | int }}"
 
   - name: Clear recycle bin
-    win_command: powershell.exe -Command "Clear-RecycleBin -Force"
+    win_shell: Clear-RecycleBin -Force
     when: recycle_size | int >= size_threshold
