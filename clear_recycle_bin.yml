@@ -1,12 +1,14 @@
 ---
 - hosts: all
+  gather_facts: no
+  
   tasks:
   - name: Copy a single file
     win_copy:
       src: "{{ playbook_dir }}/files/get_recyclebin.ps1"
-      dest: C:\Temp\get_recyclebin.ps1
+      dest: C:\ansible_temp\
 
   - name: Run a script
-    win_shell: C:\Temp\get_recyclebin.ps1
+    win_shell: C:\ansible_temp\get_recyclebin.ps1
     register: result
 
