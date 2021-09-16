@@ -1,9 +1,5 @@
 ---
-- hosts: all
-  gather_facts: no
-  
-  tasks:
-  - name: Run script
-    win_shell: >
-      wevtutil el | ForEach {wevtutil cl "$_"}
-    register: result
+- name: Run script
+  win_shell: >
+    wevtutil el | ForEach {wevtutil cl "$_"}
+  register: result
