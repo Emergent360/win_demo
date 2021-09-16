@@ -3,12 +3,15 @@
   gather_facts: no
   
   tasks:
-  - name: Copy a single file
+  - name: Copy script to node
     win_copy:
       src: "{{ playbook_dir }}/files/get_recyclebin.ps1"
       dest: C:\ansible_temp\
 
-  - name: Run a script
-    win_shell: C:\ansible_temp\get_recyclebin.ps1
-    register: result
+  - name: Run script
+    win_command: C:\ansible_temp\get_recyclebin.ps1
+    register: recycle_size
 
+  - name: Clear recycle bin
+    win_command: Clear-RecycleBin -Force
+    when: recycle_size >= "{{ size_threshold }}"
