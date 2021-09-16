@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+  - name: Copy a single file
+    win_copy:
+      src: "{{ playbook_dir }}/files/get_recyclebin.ps1"
+      dest: C:\Temp\get_recyclebin.ps1
+
+  - name: Run a script
+    win_shell: C:\Temp\get_recyclebin.ps1
+    register: result
+
