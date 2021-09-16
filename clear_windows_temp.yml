@@ -1,0 +1,21 @@
+---
+- hosts: all
+  gather_facts: no
+  
+  tasks:
+  - name: Run script
+    win_shell: >
+      Get-ChildItem C:\Window\Temp | 
+      Measure-Object -Property Size -Sum | 
+      Select-Object -expand Sum
+    register: result
+
+  - name: Set value
+    set_fact:
+     recycle_size: "{{ result.stdout | int }}"
+
+  - name: Clear windows temp
+    win_shell: >
+      Get-ChildItem C:\Window\Temp -Recurse | 
+      Remove-Item -Force
+    when: recycle_size | int >= size_threshold
