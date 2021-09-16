@@ -9,7 +9,7 @@
       dest: C:\ansible_temp\
 
   - name: Run script
-    win_command: C:\ansible_temp\get_recyclebin.ps1
+    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\ansible_temp\get_recyclebin.ps1
     register: recycle_size
 
   - name: Clear recycle bin
