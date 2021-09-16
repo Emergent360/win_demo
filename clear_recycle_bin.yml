@@ -14,4 +14,4 @@
 
   - name: Clear recycle bin
     win_command: Clear-RecycleBin -Force
-    when: recycle_size >= "{{ size_threshold }}"
+    when: recycle_size | int >= size_threshold
