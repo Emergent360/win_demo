@@ -23,3 +23,5 @@
         - "Retention Days: {{ item.retention_days }}"
         - "Max Size (KB): {{ item.maximum_size_kb }}"
     with_items: "{{ log_facts.results }}"
+    loop_control:
+      label: "{{ item.name }}"
