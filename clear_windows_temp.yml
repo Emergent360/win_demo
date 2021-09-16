@@ -6,7 +6,7 @@
   - name: Run script
     win_shell: >
       Get-ChildItem C:\Windows\Temp -Recurse |
-      Select-Object length 
+      Select-Object Length | 
       Measure-Object -Property Length -Sum | 
       Select-Object -expand Sum
     register: result
