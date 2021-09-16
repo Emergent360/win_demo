@@ -5,10 +5,10 @@
   tasks:
   - name: Run script
     win_shell: >
-      Get-ChildItem C:\Windows\Temp -Recurse |
-      Select-Object Name,Size,Path |
-      Measure-Object -Property Size -Sum | 
-      Select-Object -expand Sum
+      Get-ChildItem C:\Windows\Temp -Recurse 
+#      Select-Object Name,Size,Path |
+#      Measure-Object -Property Size -Sum | 
+#      Select-Object -expand Sum
     register: result
 
   - name: Set value
