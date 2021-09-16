@@ -4,5 +4,12 @@
   hosts: all
   gather_facts: yes
 
-  roles:
-  - patch_windows
+  tasks:
+  - name: "Clear logs"
+    include_role:
+      name: clear_event_logs
+    when: clear_logs | bool
+  
+  - name: "Patch windows"
+    include_role:
+      name: patch_windows
