@@ -7,7 +7,8 @@
   tasks:
   - name: "Get log facts"
     win_eventlog:
-      name: "{{ log_name }}"
+      name: "{{ item }}"
+    loop: "{{ log_list }}"
     register: log_facts
 
   - name: Print log info
