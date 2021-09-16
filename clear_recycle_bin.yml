@@ -9,7 +9,7 @@
       dest: C:\ansible_temp\
 
   - name: Run script
-    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\ansible_temp\get_recyclebin.ps1
+    win_command: powershell.exe -File C:\ansible_temp\get_recyclebin.ps1
     register: result
 
   - name: Set value
@@ -17,5 +17,5 @@
      recycle_size: "{{ result.stdout | int }}"
 
   - name: Clear recycle bin
-    win_command: Clear-RecycleBin -Force
+    win_command: powershell.exe Clear-RecycleBin -Force
     when: recycle_size | int >= size_threshold
