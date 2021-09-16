@@ -11,14 +11,15 @@
     with_items: "{{ log_list }}"
     register: log_facts
 
-  - debug:
-      var: log_facts
+#  - debug:
+#      var: log_facts
 
-#  - name: Print log info
-#    debug:
-#      msg:
-#        - "Log Name: {{ log_facts.name }}"
-#        - "Overflow Action: {{ log_facts.overflow_action }}"
-#        - "Log Entries: {{ log_facts.entries }}"
-#        - "Retention Days: {{ log_facts.retention_days }}"
-#        - "Max Size (KB): {{ log_facts.maximum_size_kb }}"
+  - name: Print log info
+    debug:
+      msg:
+        - "Log Name: {{ item.name }}"
+        - "Overflow Action: {{ item.overflow_action }}"
+        - "Log Entries: {{ item.entries }}"
+        - "Retention Days: {{ item.retention_days }}"
+        - "Max Size (KB): {{ item.maximum_size_kb }}"
+    with_items: "{{ log_facts.results }}"
