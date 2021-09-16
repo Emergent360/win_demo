@@ -5,7 +5,8 @@
   tasks:
   - name: Run script
     win_shell: >
-      Get-ChildItem C:\Windows\Temp | 
+      Get-ChildItem C:\Windows\Temp |
+      Select-Object Name,Size,Path |
       Measure-Object -Property Size -Sum | 
       Select-Object -expand Sum
     register: result
