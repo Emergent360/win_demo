@@ -3,4 +3,4 @@ Function Get-RecycleBin {
 	Select-Object Name,Size,Path
 }
 
-Get-RecycleBin | Measure-Object -Property Size -Sum
+Get-RecycleBin | Measure-Object -Property Size -Sum | Select-Object -expand Sum
