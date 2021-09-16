@@ -2,7 +2,7 @@
 
 - name: "Manage Chocolatey Packages"
   hosts: all
-  gather_facts: yes
+  gather_facts: no
 
   roles:
   - manage_choco_pkgs
