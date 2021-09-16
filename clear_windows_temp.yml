@@ -5,7 +5,7 @@
   tasks:
   - name: Run script
     win_shell: >
-      Get-ChildItem C:\Windows\Temp |
+      Get-ChildItem C:\Windows\Temp -Recurse |
       Select-Object Name,Size,Path |
       Measure-Object -Property Size -Sum | 
       Select-Object -expand Sum
@@ -13,10 +13,10 @@
 
   - name: Set value
     set_fact:
-     recycle_size: "{{ result.stdout | int }}"
+     temp_size: "{{ result.stdout | int }}"
 
   - name: Clear windows temp
     win_shell: >
       Get-ChildItem C:\Windows\Temp -Recurse | 
       Remove-Item -Force
-    when: recycle_size | int >= size_threshold
+    when: temp_size | int >= size_threshold
