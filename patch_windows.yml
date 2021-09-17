@@ -5,6 +5,10 @@
   gather_facts: no
 
   tasks:
+  - name: "Check disk space used"
+    include_role:
+      name: show_disk_info
+      
   - name: "Clear logs"
     include_role:
       name: clear_event_logs
