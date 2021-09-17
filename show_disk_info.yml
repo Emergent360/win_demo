@@ -4,20 +4,5 @@
   hosts: all
   gather_facts: no
 
-  tasks:
-  - name: "Get disk facts"
-    win_disk_facts:
-
-  - name: "Show disk size"
-    debug:
-      msg: "system disk size: {{ disksize_gib_human }}"
-    vars:
-      disk: '{{ ansible_facts.disks|selectattr("system_disk")|first }}'
-      disksize_gib_human: '{{ disk.size|filesizeformat(true) }}'
-
-  - name: "Show size remaining"
-    debug:  
-      msg: "size remaining: {{ size_remaining }}"
-    vars:
-      disk: '{{ ansible_facts.disks|selectattr("system_disk")|first }}'
-      size_remaining: '{{ disk.partitions[0].volumes[0].size_remaining|filesizeformat(true) }}'
+  roles:
+  - show_disk_info
