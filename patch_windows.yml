@@ -8,7 +8,11 @@
   - name: "Check disk space used"
     include_role:
       name: show_disk_info
-      
+
+  - name: "Calculate used vs threshold"
+    debug:
+      var: used_percent
+
   - name: "Clear logs"
     include_role:
       name: clear_event_logs
