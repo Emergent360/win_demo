@@ -27,3 +27,7 @@
     disk_size: '{{ disk.size }}'
     size_remaining: '{{ disk.partitions[0].volumes[0].size_remaining }}'
     used_percent: '{{ (size_remaining | float / disk_size | float) * 100 }}'
+
+- name: "set used percent fact"
+  set_fact:
+    used_percent: '{{ (size_remaining | float / disk_size | float) * 100 }}'
