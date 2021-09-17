@@ -26,4 +26,4 @@
     disk: '{{ ansible_facts.disks|selectattr("system_disk")|first }}'
     disk_size: '{{ disk.size }}'
     size_remaining: '{{ disk.partitions[0].volumes[0].size_remaining }}'
-    used_percent: '{{ (size_remaining | float / disk_size | float) * 100 }}'    
+    used_percent: '{{ (size_remaining | float / disk_size | float) * 100 }}'
