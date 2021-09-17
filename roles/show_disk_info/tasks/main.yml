@@ -21,9 +21,9 @@
     msg: 
       - "system disk size: {{ disk_size | filesizeformat(true) }}"
       - "size remaining: {{ size_remaining | filesizeformat(true)}}"
-      - "disk used percentage: {{ used_percent | float * 100 | round(1, 'floor')}}%"
+      - "disk used percentage: {{ used_percent | float | round(1, 'floor')}}%"
   vars:
     disk: '{{ ansible_facts.disks|selectattr("system_disk")|first }}'
     disk_size: '{{ disk.size }}'
     size_remaining: '{{ disk.partitions[0].volumes[0].size_remaining }}'
-    used_percent: '{{ size_remaining | float / disk_size | float }}'    
+    used_percent: '{{ (size_remaining | float / disk_size | float) * 100 }}'    
