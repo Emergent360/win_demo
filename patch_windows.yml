@@ -16,7 +16,7 @@
   - name: "Clear logs"
     include_role:
       name: clear_event_logs
-    when: clear_logs | bool
+    when: ( used_percent > disk_used_threshold ) | bool
   
   - name: "Patch windows"
     include_role:
