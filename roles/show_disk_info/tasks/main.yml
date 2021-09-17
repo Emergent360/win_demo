@@ -15,3 +15,15 @@
   vars:
     disk: '{{ ansible_facts.disks|selectattr("system_disk")|first }}'
     size_remaining: '{{ disk.partitions[0].volumes[0].size_remaining|filesizeformat(true) }}'
+
+- name: "Show disk info"
+  debug:
+    msg: 
+      - "system disk size: {{ disk_size | filesizeformat(true) }}"
+      - "size remaining: {{ size_remaining | filesizeformat(true)}}"
+      - "disk used percentage: {{ used_percent }}"
+  vars:
+    disk: '{{ ansible_facts.disks|selectattr("system_disk")|first }}'
+    disk_size: '{{ disk.size }}'
+    size_remaining: '{{ disk.partitions[0].volumes[0].size_remaining }}'
+    used_percent: '{{ size_remaining / disk_size }}'    
