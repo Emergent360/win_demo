@@ -18,5 +18,5 @@
   - name: Clear windows temp
     win_shell: >
       Get-ChildItem C:\Windows\Temp -Recurse | 
-      Remove-Item -Force
+      Remove-Item -Force -Recurse
     when: temp_size | int >= size_threshold
