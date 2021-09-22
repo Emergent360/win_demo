@@ -19,4 +19,4 @@
     win_shell: >
       Get-ChildItem C:\Windows\Temp -Recurse | 
       Remove-Item -Force -Recurse -ErrorAction Continue
-    when: temp_size | int >= size_threshold
+    when: temp_size | int > size_threshold
