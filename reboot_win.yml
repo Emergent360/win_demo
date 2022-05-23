@@ -1,0 +1,8 @@
+---
+- name: Reboot Windows Machine
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: Reboot Win Machine with defaults
+      ansible.windows.win_reboot: 
